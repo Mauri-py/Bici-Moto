@@ -22,124 +22,108 @@ class _DashboardState extends State<Dashboard> {
 
   @override
   Widget build(BuildContext context) {
-    final Size size = MediaQuery.of(context).size;
-
     return Scaffold(
       backgroundColor: colorFondoPrincipal,
       body: SizedBox(
         width: double.infinity,
-        child: (size.width > 1184 && size.height > 604)
-            ? Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Container(
-                    margin: const EdgeInsets.all(16),
-                    constraints: const BoxConstraints(
-                      minWidth: 1184,
-                      maxWidth: 1480,
-                      minHeight: 456,
-                      maxHeight: 604,
-                    ),
-                    child: AspectRatio(
-                      aspectRatio: 2.59,
-                      child: LayoutBuilder(
-                        builder: (context, constraints) => CustomPaint(
-                          // Pinta la forma general del tablero
-                          painter: PathPainter(),
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Container(
+              margin: const EdgeInsets.all(16),
+              constraints: const BoxConstraints(
+                minWidth: 1184,
+                maxWidth: 1480,
+                minHeight: 456,
+                maxHeight: 604,
+              ),
+              child: AspectRatio(
+                aspectRatio: 2.59,
+                child: LayoutBuilder(
+                  builder: (context, constraints) => CustomPaint(
+                    painter: PathPainter(),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        TiempoYTemperatura(constraints: constraints),
+                        Expanded(
+                          child: Stack(
+                            fit: StackFit.expand,
                             children: [
-                              // Parte superior: hora y temperatura
-                              TiempoYTemperatura(constraints: constraints),
-
-                              // Parte central del dashboard
-                              Expanded(
-                                child: Stack(
-                                  fit: StackFit.expand,
-                                  children: [
-                                    Column(
-                                      children: [
-                                        const SizedBox(height: 20),
-                                        const Indicadores(), // RPM, combustible, etc.
-                                        const Spacer(),
-                                        const VelocidadActual(velocidad: 54), // Velocidad grande
-                                        const Spacer(),
-                                        Row(
-                                          mainAxisAlignment: MainAxisAlignment.center,
-                                          children: [
-                                            SvgPicture.asset(
-                                              "assets/icons/speed_miter.svg",
-                                              height: 32,
-                                            ),
-                                            Padding(
-                                              padding: const EdgeInsets.only(left: 8),
-                                              child: Text(
-                                                "100 km/H",
-                                                style: Theme.of(context).textTheme.titleMedium!.copyWith(
-                                                  color: colorPrimario,
-                                                ),
-                                              ),
-                                            )
-                                          ],
+                              Column(
+                                children: [
+                                  const SizedBox(height: 20),
+                                  const Indicadores(),
+                                  const Spacer(),
+                                  const VelocidadActual(velocidad: 54),
+                                  const Spacer(),
+                                  Row(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      SvgPicture.asset(
+                                        "assets/icons/speed_miter.svg",
+                                        height: 32,
+                                      ),
+                                      Padding(
+                                        padding: const EdgeInsets.only(left: 8),
+                                        child: Text(
+                                          "100 km/H",
+                                          style: Theme.of(context)
+                                              .textTheme
+                                              .titleMedium!
+                                              .copyWith(color: colorPrimario),
                                         ),
-                                        const SizedBox(height: 10),
-                                        // Info del motor al fondo
-                                        InfoMotor(constraints: constraints),
-                                      ],
+                                      )
+                                    ],
+                                  ),
+                                  const SizedBox(height: 10),
+                                  InfoMotor(constraints: constraints),
+                                ],
+                              ),
+                              ...List.generate(
+                                LineasVelocidadOpacidad.length,
+                                (index) => Positioned(
+                                  bottom: 20 + (2 * index).toDouble(),
+                                  left: constraints.maxWidth * 0.13 - (30 * index),
+                                  height: constraints.maxHeight * 0.8,
+                                  width: constraints.maxWidth * 0.31,
+                                  child: Opacity(
+                                    opacity: LineasVelocidadOpacidad[index],
+                                    child: CustomPaint(
+                                      painter: SpeedLinePainter(),
                                     ),
-
-                                    // Líneas de velocidad a la izquierda
-                                    ...List.generate(
-                                      LineasVelocidadOpacidad.length,
-                                      (index) => Positioned(
-                                        bottom: 20 + (2 * index).toDouble(),
-                                        left: constraints.maxWidth * 0.13 - (30 * index),
-                                        height: constraints.maxHeight * 0.8,
-                                        width: constraints.maxWidth * 0.31,
-                                        child: Opacity(
-                                          opacity: LineasVelocidadOpacidad[index],
-                                          child: CustomPaint(
-                                            painter: SpeedLinePainter(),
-                                          ),
-                                        ),
+                                  ),
+                                ),
+                              ),
+                              ...List.generate(
+                                LineasVelocidadOpacidad.length,
+                                (index) => Positioned(
+                                  bottom: 20 + (2 * index).toDouble(),
+                                  right: constraints.maxWidth * 0.13 - (30 * index),
+                                  height: constraints.maxHeight * 0.8,
+                                  width: constraints.maxWidth * 0.31,
+                                  child: Transform.scale(
+                                    scaleX: -1,
+                                    child: Opacity(
+                                      opacity: LineasVelocidadOpacidad[index],
+                                      child: CustomPaint(
+                                        painter: SpeedLinePainter(),
                                       ),
                                     ),
-
-                                    // Líneas de velocidad a la derecha (espejadas)
-                                    ...List.generate(
-                                      LineasVelocidadOpacidad.length,
-                                      (index) => Positioned(
-                                        bottom: 20 + (2 * index).toDouble(),
-                                        right: constraints.maxWidth * 0.13 - (30 * index),
-                                        height: constraints.maxHeight * 0.8,
-                                        width: constraints.maxWidth * 0.31,
-                                        child: Transform.scale(
-                                          scaleX: -1,
-                                          child: Opacity(
-                                            opacity: LineasVelocidadOpacidad[index],
-                                            child: CustomPaint(
-                                              painter: SpeedLinePainter(),
-                                            ),
-                                          ),
-                                        ),
-                                      ),
-                                    ),
-                                  ],
+                                  ),
                                 ),
                               ),
                             ],
                           ),
                         ),
-                      ),
+                      ],
                     ),
                   ),
-                ],
-              )
-            : const Center(
-                child: Text(
-                  "The screen is too small to display the UI \n It can't be viewed on a phone. Try resizing your browser if you are on the web.",
                 ),
               ),
+            ),
+          ],
+        ),
       ),
     );
   }
@@ -183,9 +167,9 @@ class PathPainter extends CustomPainter {
 
 /// Dibuja una línea con guiones (por ejemplo, para progreso promedio).
 class DashLinePainter extends CustomPainter {
-  final double progress;
-
   DashLinePainter({required this.progress});
+
+  final double progress;
 
   final Paint _paint = Paint()
     ..color = colorPrimarioMedio
@@ -384,6 +368,5 @@ class kInfoMotor extends CustomPainter {
 
   @override
   bool shouldRepaint(CustomPainter oldDelegate) => true;
-
 }
 
