@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import '../constantes.dart';
 
 /// Widget que muestra la hora actual y la temperatura ambiente.
 /// Se adapta automáticamente al tamaño disponible gracias a `BoxConstraints`.
@@ -22,7 +23,13 @@ class TiempoYTemperatura extends StatelessWidget {
         child: Row(
           children: [
             // Hora actual (por ahora fija, se puede hacer dinámica más adelante)
-            const Text("05:21 PM"),
+            Text(
+              "05:21 PM",
+              style: TextStyle(
+                fontSize: 16,
+                color: colorTextoPrincipal.withOpacity(0.32),
+              ),
+            ),
 
             // Espaciador flexible que empuja la temperatura al final
             const Spacer(),
@@ -36,7 +43,13 @@ class TiempoYTemperatura extends StatelessWidget {
             const SizedBox(width: 4),
 
             // Temperatura ambiente (actualmente fija en 18 grados)
-            const Text("18 °C"),
+            Text(
+              "18 °C",
+              style: TextStyle(
+                fontSize: 16,
+                color: colorTextoPrincipal.withOpacity(0.32),
+              ),
+            ),
           ],
         ),
       ),
