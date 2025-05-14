@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'dart:ui';
 
-import 'dashboard.dart'; // Ajusta esta importación según la ruta real de tu proyecto
+import 'dashboard.dart'; 
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
