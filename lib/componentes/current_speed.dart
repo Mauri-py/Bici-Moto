@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../constantes.dart';
 
 class CurrentSpeed extends StatelessWidget {
   const CurrentSpeed({
@@ -17,8 +18,8 @@ class CurrentSpeed extends StatelessWidget {
             begin: Alignment.topCenter,
             end: Alignment.bottomCenter,
             colors: [
-              Colors.white,
-              Colors.white.withOpacity(0),
+              colorTextoPrincipal,
+              colorTextoPrincipal.withOpacity(0),
             ],
           ).createShader(
             Rect.fromLTWH(0.0, 0.0, bounds.width, bounds.height),

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../constants.dart'; // Import de constantes
+import '../constantes.dart'; // Import de constantes
 import '../dashboard.dart';
 // Widget que muestra información del motor: nivel de nafta, autonomía, consumo promedio y odómetro
 class InfoMotor extends StatelessWidget {

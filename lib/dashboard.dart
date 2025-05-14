@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'dart:ui' as ui;
 
-import 'components/car_indicators.dart';
-import 'components/current_speed.dart';
-import 'components/info_motor.dart';
-import 'components/Tiempo_Temperatura.dart';
-import 'constants.dart';
+import 'componentes/car_indicators.dart';
+import 'componentes/current_speed.dart';
+import 'componentes/info_motor.dart';
+import 'componentes/Tiempo_Temperatura.dart';
+import 'constantes.dart';
 
 class Dashboard extends StatefulWidget {
   const Dashboard({super.key});
