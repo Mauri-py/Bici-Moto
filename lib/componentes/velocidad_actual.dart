@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import '../constantes.dart';
 
-class CurrentSpeed extends StatelessWidget {
-  const CurrentSpeed({
+class VelocidadActual extends StatelessWidget {
+  const VelocidadActual({
     Key? key,
-    this.speed = 00,
+    this.velocidad = 00,
   }) : super(key: key);
-  final int speed;
+  final int velocidad;
 
   @override
   Widget build(BuildContext context) {
@@ -25,7 +25,7 @@ class CurrentSpeed extends StatelessWidget {
             Rect.fromLTWH(0.0, 0.0, bounds.width, bounds.height),
           ),
           child: Text(
-            "$speed",
+            "$velocidad",
             style: const TextStyle(
               fontSize: 96,
               fontWeight: FontWeight.w500,

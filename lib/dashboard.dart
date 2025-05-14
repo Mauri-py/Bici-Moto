@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'dart:ui' as ui;
 
-import 'componentes/car_indicators.dart';
-import 'componentes/current_speed.dart';
+import 'componentes/indicadores.dart';
+import 'componentes/velocidad_actual.dart';
 import 'componentes/info_motor.dart';
-import 'componentes/Tiempo_Temperatura.dart';
+import 'componentes/tiempo_temperatura.dart';
 import 'constantes.dart';
 
 class Dashboard extends StatefulWidget {
@@ -55,9 +55,9 @@ class _DashboardState extends State<Dashboard> {
                                     Column(
                                       children: [
                                         const SizedBox(height: 20),
-                                        const CarIndicators(),
+                                        const Indicadores(),
                                         const Spacer(),
-                                        const CurrentSpeed(speed: 54),
+                                        const VelocidadActual(velocidad: 54),
                                         const Spacer(),
                                         Row(
                                           mainAxisAlignment:

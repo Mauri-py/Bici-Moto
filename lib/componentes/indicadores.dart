@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-class CarIndicators extends StatelessWidget {
-  const CarIndicators({
+class Indicadores extends StatelessWidget {
+  const Indicadores({
     Key? key,
   }) : super(key: key);
 
