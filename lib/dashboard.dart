@@ -5,7 +5,7 @@ import 'dart:ui' as ui;
 import 'components/car_indicators.dart';
 import 'components/current_speed.dart';
 import 'components/info_motor.dart';
-import 'components/time_and_temp.dart';
+import 'components/Tiempo_Temperatura.dart';
 import 'constants.dart';
 
 class Dashboard extends StatefulWidget {
@@ -47,7 +47,7 @@ class _DashboardState extends State<Dashboard> {
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             // crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              TimeAndTemp(constraints: constraints),
+                              TiempoYTemperatura(constraints: constraints),
                               Expanded(
                                 child: Stack(
                                   fit: StackFit.expand,

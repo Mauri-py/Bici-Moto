@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-class TimeAndTemp extends StatelessWidget {
-  const TimeAndTemp({
+class TiempoYTemperatura extends StatelessWidget {
+  const TiempoYTemperatura({
     Key? key,
     required this.constraints,
   }) : super(key: key);
