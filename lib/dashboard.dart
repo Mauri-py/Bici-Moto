@@ -21,7 +21,7 @@ class _DashboardState extends State<Dashboard> {
   Widget build(BuildContext context) {
     final Size size = MediaQuery.of(context).size;
     return Scaffold(
-      backgroundColor: Colors.black,
+      backgroundColor: colorFondoPrincipal,
       body: SizedBox(
         width: double.infinity,
         child: (size.width > 1184 && size.height > 604)
@@ -76,7 +76,7 @@ class _DashboardState extends State<Dashboard> {
                                                     .textTheme
                                                     .titleMedium!
                                                     .copyWith(
-                                                        color: kPrimaryDark),
+                                                        color: colorPrimario),
                                               ),
                                             )
                                           ],
@@ -151,8 +151,8 @@ class PathPainter extends CustomPainter {
         end: Alignment.bottomRight,
         // end: a,
         colors: [
-          Color(0xFF6B4339),
-          Color(0xFF52342C),
+          colorPrimario,
+          colorPrimarioMedio,
         ],
       ).createShader(const Offset(0, 0) & size)
       ..style = PaintingStyle.stroke
@@ -194,7 +194,7 @@ class RPSCustomPainter extends CustomPainter {
     paint0Fill.shader = ui.Gradient.linear(
         Offset(size.width * 0.2325310, size.height * 0.1075232),
         Offset(size.width * 0.05690000, size.height * 0.3567081),
-        [kPrimaryDark.withOpacity(1), kPrimaryLight],
+        [colorPrimario.withOpacity(1), colorPrimarioClaro],
         [0, 1]);
     canvas.drawPath(path_0, paint0Fill);
 
@@ -211,8 +211,8 @@ class RPSCustomPainter extends CustomPainter {
       const Offset(0, 0),
       size.width * 0.001769912,
       [
-        kSecondaryGlow.withOpacity(0.85),
-        kSecondaryGlow.withOpacity(0),
+        colorBrilloSecundario.withOpacity(0.85),
+        colorBrilloSecundario.withOpacity(0),
       ],
       [0, 1],
     );
@@ -230,7 +230,7 @@ class RPSCustomPainter extends CustomPainter {
     paint2Fill.shader = ui.Gradient.linear(
         Offset(size.width * 1.251189, size.height * 1.259853),
         Offset(size.width * 0.1584545, size.height * 0.01942938),
-        [kPrimaryDark.withOpacity(1), kPrimaryDark.withOpacity(0)],
+        [colorPrimario.withOpacity(1), colorPrimario.withOpacity(0)],
         [0, 1]);
     canvas.drawPath(path_2, paint2Fill);
   }
@@ -256,7 +256,7 @@ class AverageMillagePainter extends CustomPainter {
     paint0Fill.shader = ui.Gradient.linear(
         Offset(size.width * 0.9125874, size.height * -0.000008129217),
         Offset(size.width * 0.8369860, size.height * 1.762893),
-        [kPrimaryDark.withOpacity(1), kPrimaryGradientEnd.withOpacity(0.79)],
+        [colorPrimario.withOpacity(1), colorGradienteFinal.withOpacity(0.79)],
         [0, 1]);
     canvas.drawPath(path_0, paint0Fill);
   }
@@ -271,7 +271,7 @@ class GearPrinter extends CustomPainter {
   @override
   void paint(Canvas canvas, Size size) {
     Paint paint = Paint()
-      ..color = kPrimaryMedium
+      ..color = colorPrimarioMedio
       ..style = PaintingStyle.fill;
 
     // paint.shader = LinearGradient(colors: colors)
@@ -316,7 +316,7 @@ class DashLinePainter extends CustomPainter {
   DashLinePainter({required this.progress});
 
   final Paint _paint = Paint()
-    ..color = kPrimaryMedium
+    ..color = colorPrimarioMedio
     ..strokeWidth = 10.0
     ..style = PaintingStyle.stroke
     ..strokeJoin = StrokeJoin.round;
@@ -372,7 +372,7 @@ class SpeedLinePainter extends CustomPainter {
     paint0Fill.shader = ui.Gradient.linear(
         Offset(size.width * 0.9125874, size.height * -0.000008129217),
         Offset(size.width * 0.8369860, size.height * 1.762893),
-        [kPrimaryDark.withOpacity(1), kPrimaryGradientEnd.withOpacity(0.79)],
+        [colorPrimario.withOpacity(1), colorGradienteFinal.withOpacity(0.79)],
         [0, 1]);
     canvas.drawPath(path_0, paint0Fill);
     canvas.drawPath(path1, paint0Fill);
