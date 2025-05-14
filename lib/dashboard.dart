@@ -4,7 +4,7 @@ import 'dart:ui' as ui;
 
 import 'components/car_indicators.dart';
 import 'components/current_speed.dart';
-import 'components/gear_battery.dart';
+import 'components/info_motor.dart';
 import 'components/time_and_temp.dart';
 import 'constants.dart';
 

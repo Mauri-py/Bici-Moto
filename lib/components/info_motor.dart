@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+import '../constants.dart'; // Import de constantes
 import '../dashboard.dart';
 
 class GearAndBattery extends StatelessWidget {
@@ -13,7 +13,6 @@ class GearAndBattery extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      // color: Colors.blueGrey.withOpacity(0.15),
       width: constraints.maxWidth * 0.74,
       height: constraints.maxHeight * 0.22,
       child: LayoutBuilder(
@@ -30,13 +29,13 @@ class GearAndBattery extends StatelessWidget {
                       text: "Rest. ",
                       style: TextStyle(
                         fontSize: 16,
-                        color: Colors.white.withOpacity(0.16),
+                        color: colorTextoPrincipal.withOpacity(0.16),
                       ),
                       children: const [
                         TextSpan(
                           text: "465km",
                           style: TextStyle(
-                            color: Color(0xFF77C000),
+                            color: colorBateriaLlena,
                           ),
                         ),
                       ],
@@ -53,7 +52,7 @@ class GearAndBattery extends StatelessWidget {
                             style: TextStyle(
                               fontSize: 20,
                               fontWeight: FontWeight.w500,
-                              color: Colors.white.withOpacity(0.16),
+                              color: colorTextoPrincipal.withOpacity(0.16),
                             ),
                           ),
                           const SizedBox(width: 10),
@@ -73,7 +72,7 @@ class GearAndBattery extends StatelessWidget {
                             child: Text(
                               "100%",
                               style: TextStyle(
-                                color: Color(0xFF77C000),
+                                color: colorBateriaLlena,
                               ),
                             ),
                           )
@@ -99,14 +98,14 @@ class GearAndBattery extends StatelessWidget {
                       "Avg. ",
                       style: TextStyle(
                         fontSize: 16,
-                        color: Colors.white.withOpacity(0.16),
+                        color: colorTextoPrincipal.withOpacity(0.16),
                       ),
                     ),
                     Text(
                       "11.3 w/km",
                       style: TextStyle(
                         fontSize: 16,
-                        color: Colors.white.withOpacity(0.32),
+                        color: colorTextoPrincipal.withOpacity(0.32),
                       ),
                     ),
                   ],
@@ -126,14 +125,14 @@ class GearAndBattery extends StatelessWidget {
                       "ODO. ",
                       style: TextStyle(
                         fontSize: 16,
-                        color: Colors.white.withOpacity(0.16),
+                        color: colorTextoPrincipal.withOpacity(0.16),
                       ),
                     ),
                     Text(
                       "6666.6km",
                       style: TextStyle(
                         fontSize: 16,
-                        color: Colors.white.withOpacity(0.32),
+                        color: colorTextoPrincipal.withOpacity(0.32),
                       ),
                     ),
                   ],
@@ -166,10 +165,9 @@ class AvgWattPerKmPrinter extends CustomPainter {
   @override
   void paint(Canvas canvas, Size size) {
     Paint paint = Paint()
-      ..color = const Color(0xFF6B4339)
+      ..color = colorFondoMarcadorMarcha
       ..style = PaintingStyle.fill;
 
-    // paint.shader = LinearGradient(colors: colors)
     const double strokeWidth = 4;
     Path path = Path()
       ..moveTo(0, size.height)
@@ -189,16 +187,14 @@ class OdoPrinter extends CustomPainter {
   @override
   void paint(Canvas canvas, Size size) {
     Paint paint = Paint()
-      ..color = const Color(0xFF6B4339)
+      ..color = colorFondoMarcadorMarcha
       ..style = PaintingStyle.fill;
 
-    // paint.shader = LinearGradient(colors: colors)
     const double strokeWidth = 4;
     Path path = Path()
       ..lineTo(size.width * 0.73, 0)
       ..lineTo(size.width, size.height)
       ..lineTo(size.width * 0.73, strokeWidth);
-    // ..lineTo(size.width, 0);
 
     path.close();
     canvas.drawPath(path, paint);
