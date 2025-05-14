@@ -18,7 +18,7 @@ class Dashboard extends StatefulWidget {
 
 class _DashboardState extends State<Dashboard> {
   // Lista de opacidades para las líneas de velocidad (efecto visual)
-  List<double> speedLineOpacities = [1, 0.8, 0.6, 0.4, 0.3, 0.2, 0.15, 0.1];
+  List<double> LineasVelocidadOpacidad = [1, 0.8, 0.6, 0.4, 0.3, 0.2, 0.15, 0.1];
 
   @override
   Widget build(BuildContext context) {
@@ -90,14 +90,14 @@ class _DashboardState extends State<Dashboard> {
 
                                     // Líneas de velocidad a la izquierda
                                     ...List.generate(
-                                      speedLineOpacities.length,
+                                      LineasVelocidadOpacidad.length,
                                       (index) => Positioned(
                                         bottom: 20 + (2 * index).toDouble(),
                                         left: constraints.maxWidth * 0.13 - (30 * index),
                                         height: constraints.maxHeight * 0.8,
                                         width: constraints.maxWidth * 0.31,
                                         child: Opacity(
-                                          opacity: speedLineOpacities[index],
+                                          opacity: LineasVelocidadOpacidad[index],
                                           child: CustomPaint(
                                             painter: SpeedLinePainter(),
                                           ),
@@ -107,7 +107,7 @@ class _DashboardState extends State<Dashboard> {
 
                                     // Líneas de velocidad a la derecha (espejadas)
                                     ...List.generate(
-                                      speedLineOpacities.length,
+                                      LineasVelocidadOpacidad.length,
                                       (index) => Positioned(
                                         bottom: 20 + (2 * index).toDouble(),
                                         right: constraints.maxWidth * 0.13 - (30 * index),
@@ -116,7 +116,7 @@ class _DashboardState extends State<Dashboard> {
                                         child: Transform.scale(
                                           scaleX: -1,
                                           child: Opacity(
-                                            opacity: speedLineOpacities[index],
+                                            opacity: LineasVelocidadOpacidad[index],
                                             child: CustomPaint(
                                               painter: SpeedLinePainter(),
                                             ),
