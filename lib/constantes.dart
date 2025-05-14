@@ -21,3 +21,7 @@ const Color colorPrimarioMedio = Color(0xFF52342C); // Variante media del color 
 const Color colorPrimarioClaro = Color(0xFF8B7268); // Variante clara del color principal
 const Color colorGradienteFinal = Color(0xFF7D7472); // Color de terminación del gradiente
 const Color colorBrilloSecundario = Color(0xFFE2BDAD); // Brillo decorativo secundario
+
+
+
+//?https://iconos8.es/icons

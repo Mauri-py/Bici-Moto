@@ -17,7 +17,7 @@ class Indicadores extends StatelessWidget {
         TextButton(
           onPressed: () {}, // Actualmente no hace nada al presionar
           child: SvgPicture.asset(
-            "assets/icons/left_indicator.svg", // Ícono SVG del guiño izquierdo
+            "assets/icons/giro_izquierdo_prendido.svg", // Ícono SVG del guiño izquierdo
             height: 32, // Altura del ícono
           ),
         ),
@@ -41,7 +41,7 @@ class Indicadores extends StatelessWidget {
         TextButton(
           onPressed: () {},
           child: SvgPicture.asset(
-            "assets/icons/right_indicator.svg", // Ícono SVG del guiño derecho
+            "assets/icons/giro_derecho_apagado.svg", // Ícono SVG del guiño derecho
             height: 32,
           ),
         ),
