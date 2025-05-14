@@ -10,7 +10,7 @@ const Color colorAdvertencia = Colors.red; // Indicadores de error o advertencia
 const Color colorVelocimetroFondo = Color(0xFF6B4339); // Fondo del velocímetro
 const Color colorVelocimetroAro = Color(0xFF52342C); // Aro del velocímetro
 
-const Color colorBateriaLlena = Color(0xFF77C000); // Indicador de batería llena
+const Color colorNaftaLlena = Color(0xFF77C000); // Indicador de batería llena
 const Color colorFondoInfo = Colors.blueGrey; // Fondo para información (temperatura, voltaje, etc.)
 const Color colorFondoMarcadorMarcha = Color(0xFF6B4339); // Fondo del indicador de marcha
 
