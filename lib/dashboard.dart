@@ -82,7 +82,7 @@ class _DashboardState extends State<Dashboard> {
                                           ],
                                         ),
                                         const SizedBox(height: 10),
-                                        GearAndBattery(
+                                        InfoMotor(
                                             constraints: constraints),
                                       ],
                                     ),
@@ -267,7 +267,7 @@ class AverageMillagePainter extends CustomPainter {
   }
 }
 
-class GearPrinter extends CustomPainter {
+class kInfoMotor extends CustomPainter {
   @override
   void paint(Canvas canvas, Size size) {
     Paint paint = Paint()

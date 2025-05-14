@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import '../constants.dart'; // Import de constantes
 import '../dashboard.dart';
-
-class GearAndBattery extends StatelessWidget {
-  const GearAndBattery({
+// Widget que muestra información del motor: nivel de nafta, autonomía, consumo promedio y odómetro
+class InfoMotor extends StatelessWidget {
+  const InfoMotor({
     Key? key,
     required this.constraints,
   }) : super(key: key);
-
+// Restricciones de tamaño disponibles para el widget (ancho y alto)
   final BoxConstraints constraints;
 
   @override
@@ -16,11 +16,11 @@ class GearAndBattery extends StatelessWidget {
       width: constraints.maxWidth * 0.74,
       height: constraints.maxHeight * 0.22,
       child: LayoutBuilder(
-        builder: (context, gearConstraints) => Stack(
+        builder: (context, restriccionesInfo) => Stack(
           fit: StackFit.expand,
           children: [
             CustomPaint(
-              painter: GearPrinter(),
+              painter: kInfoMotor(),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
@@ -44,7 +44,7 @@ class GearAndBattery extends StatelessWidget {
                   Padding(
                     padding: const EdgeInsets.only(bottom: 10),
                     child: SizedBox(
-                      width: gearConstraints.maxWidth * 0.72,
+                      width: restriccionesInfo.maxWidth * 0.72,
                       child: Row(
                         children: [
                           Text(
@@ -60,7 +60,7 @@ class GearAndBattery extends StatelessWidget {
                             child: SizedBox(
                               height: 8,
                               child: ClipPath(
-                                clipper: BatteryStatusCliper(),
+                                clipper: NivelCombustible(),
                                 child: CustomPaint(
                                   painter: DashLinePainter(progress: 1),
                                 ),
@@ -84,16 +84,16 @@ class GearAndBattery extends StatelessWidget {
               ),
             ),
             Positioned(
-              top: gearConstraints.maxHeight * 0.10,
-              left: gearConstraints.maxWidth * 0.16,
-              width: gearConstraints.maxWidth * 0.17,
-              height: gearConstraints.maxHeight * 0.38,
+              top: restriccionesInfo.maxHeight * 0.10,
+              left: restriccionesInfo.maxWidth * 0.16,
+              width: restriccionesInfo.maxWidth * 0.17,
+              height: restriccionesInfo.maxHeight * 0.38,
               child: CustomPaint(
-                painter: AvgWattPerKmPrinter(),
+                painter: ConsumoPromedio(),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    SizedBox(width: gearConstraints.maxWidth * 0.025),
+                    SizedBox(width: restriccionesInfo.maxWidth * 0.025),
                     Text(
                       "Avg. ",
                       style: TextStyle(
@@ -113,12 +113,12 @@ class GearAndBattery extends StatelessWidget {
               ),
             ),
             Positioned(
-              top: gearConstraints.maxHeight * 0.10,
-              right: gearConstraints.maxWidth * 0.16,
-              width: gearConstraints.maxWidth * 0.17,
-              height: gearConstraints.maxHeight * 0.38,
+              top: restriccionesInfo.maxHeight * 0.10,
+              right: restriccionesInfo.maxWidth * 0.16,
+              width: restriccionesInfo.maxWidth * 0.17,
+              height: restriccionesInfo.maxHeight * 0.38,
               child: CustomPaint(
-                painter: OdoPrinter(),
+                painter: Odometro(),
                 child: Row(
                   children: [
                     Text(
@@ -146,7 +146,7 @@ class GearAndBattery extends StatelessWidget {
   }
 }
 
-class BatteryStatusCliper extends CustomClipper<Path> {
+class NivelCombustible extends CustomClipper<Path> {
   @override
   Path getClip(Size size) {
     Path path = Path()
@@ -161,7 +161,7 @@ class BatteryStatusCliper extends CustomClipper<Path> {
   bool shouldReclip(CustomClipper<Path> oldClipper) => true;
 }
 
-class AvgWattPerKmPrinter extends CustomPainter {
+class ConsumoPromedio extends CustomPainter {
   @override
   void paint(Canvas canvas, Size size) {
     Paint paint = Paint()
@@ -183,7 +183,7 @@ class AvgWattPerKmPrinter extends CustomPainter {
   bool shouldRepaint(CustomPainter oldDelegate) => true;
 }
 
-class OdoPrinter extends CustomPainter {
+class Odometro extends CustomPainter {
   @override
   void paint(Canvas canvas, Size size) {
     Paint paint = Paint()
